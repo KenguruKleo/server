@@ -1,0 +1,14 @@
+import mongoose from 'mongoose';
+import { Schema } from 'mongoose';
+
+// Define our model
+const userSchema = new Schema({
+    email: { type: String, unique: true, lowercase: true },
+    password: String
+});
+
+// Create the model class
+const modelUser = mongoose.model('user', userSchema);
+
+// Export the model
+export default modelUser;
