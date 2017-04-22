@@ -8,6 +8,12 @@ function tokenForUser(user) {
 }
 
 export default {
+    
+    signin: function (req, res, next) {
+        // User has already had their email and password auth'd
+        // We just need to give them a token
+        
+    },
 
     signup: function( req, res, next ){
         const email = req.body.email;
