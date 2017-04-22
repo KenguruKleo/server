@@ -6,6 +6,7 @@ import router from './router';
 import mongoose from 'mongoose';
 
 // DB Setup
+mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017/auth')
 
 const app = express();
