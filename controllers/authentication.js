@@ -1,4 +1,11 @@
+import jwt from 'jwt-simple';
 import User from '../models/user';
+import config from '../config';
+
+function tokenForUser(user) {
+    const timestamp = new Date().getTime();
+    return jwt.encode({ sub: user.id, iot: timestamp }, config.secret);
+}
 
 export default {
 
@@ -26,7 +33,7 @@ export default {
                 if (err) { return next(err); }
             });
 
-            res.json({success: true});
+            res.json({ token: tokenForUser(user) });
 
         });
     }
