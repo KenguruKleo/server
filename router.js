@@ -1,5 +1,5 @@
+import Authentication from './controllers/authentication';
+
 export default function ( app ) {
-    app.get('/', (req, res, next) => {
-        res.send(['water', 'phone']);
-    });
+    app.post( '/signup', Authentication.signup );
 }
